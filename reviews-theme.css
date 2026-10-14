@@ -1,0 +1,49 @@
+/* ===== Google reviews, uPVC page: light luxury (ivory/ice, navy ink, serif). Same colours as the page, calmer layout. ===== */
+.gr{background:linear-gradient(180deg,#fff 0%,var(--ice) 100%)!important;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.gr h2{font-family:var(--serif)!important;font-weight:500!important;font-size:clamp(34px,4.4vw,58px)!important;color:var(--ink)!important;letter-spacing:-.015em;margin:14px 0 8px!important}
+.gr h2 em{font-style:italic!important;color:var(--blue)!important;font-weight:500}
+.gr__sub{color:var(--mu)!important;font-family:var(--sans)}
+.gr__badge{font-family:var(--sans)!important;background:#fff!important;border:1px solid var(--line)!important;box-shadow:0 14px 34px -22px rgba(2,32,84,.5)!important}
+.gr-f{font-family:var(--sans)!important;font-weight:500!important;border:1px solid var(--line)!important;background:#fff!important;color:var(--ink2)!important}
+.gr-f.is-on{background:var(--ink)!important;border-color:var(--ink)!important;color:#fff!important;box-shadow:0 12px 24px -14px rgba(11,31,68,.7)!important}.gr-f.is-on b{color:var(--sky)!important}
+.gr-card{position:relative;border-radius:26px!important;border:1px solid rgba(255,255,255,.95)!important;background:#fff!important;box-shadow:0 34px 70px -44px rgba(2,32,84,.55),0 0 0 1px rgba(2,64,154,.09)!important;padding:26px 24px 22px!important;gap:12px!important}
+.gr-card[data-s="1"],.gr-card[data-s="5"]{border-top:1px solid rgba(255,255,255,.95)!important}
+.gr-card:not(.gr-card--cta):before{content:"\201C";position:absolute;right:20px;top:10px;font:italic 500 84px/1 var(--serif);color:var(--ice2);pointer-events:none}
+.gr-card header,.gr-card .gr-st,.gr-card .gr-t,.gr-card .gr-more{position:relative}
+.gr-card header b{font-family:var(--serif)!important;font-weight:600!important;font-size:21px!important;color:var(--ink)!important}
+.gr-card header small{color:var(--mu)!important;font-family:var(--sans)}
+.gr-st{color:var(--blue)!important;font-size:17px!important}
+.gr-t{font-family:var(--sans);color:var(--ink2)!important;font-size:15px!important}
+.gr-more{font-family:var(--sans)!important;color:var(--blue)!important;font-weight:500!important}
+.gr-card--cta{background:linear-gradient(150deg,var(--ink),#073583)!important;border:0!important}.gr-card--cta h3{font-family:var(--serif)!important;font-weight:500!important;font-size:30px!important}
+.gr-btn{background:linear-gradient(135deg,var(--blue2),var(--blue))!important;font-family:var(--sans)!important;font-weight:500!important;letter-spacing:.04em}
+.gr__count,.gr__all{font-family:var(--sans)!important;font-weight:500!important;color:var(--ink2)!important}.gr__all{color:var(--blue)!important}
+.gr__dots i.on{background:var(--blue)!important}
+.gr-nav{border:1px solid var(--line)!important;color:var(--ink)!important}.gr-nav:hover{background:var(--ink)!important;color:#fff!important}
+/* quick enquiry */
+.gr-ask{border-radius:32px!important;border:1px solid rgba(255,255,255,.95)!important;box-shadow:0 44px 90px -50px rgba(2,32,84,.6),0 0 0 1px rgba(2,64,154,.08)!important}
+.gr-ask__k{font-family:var(--sans)!important;font-weight:500!important;letter-spacing:.24em!important;color:var(--blue)!important}
+.gr-ask h3{font-family:var(--serif)!important;font-weight:500!important;font-size:clamp(28px,3vw,40px)!important;color:var(--ink)!important}
+.gr-steps li{font-family:var(--sans)!important;font-weight:500!important}.gr-steps li.is-on{background:var(--ink)!important}.gr-steps li.is-done b{background:var(--blue)!important}
+.gr-opt{font-family:var(--sans)!important;font-weight:500!important;border:1px solid var(--line)!important;border-radius:16px!important}.gr-opt b{font-family:var(--serif)!important;font-size:21px!important;font-weight:600!important}
+.gr-opt[aria-pressed=true]{background:var(--ink)!important;border-color:var(--ink)!important}
+.gr-fld label,.gr-lbl,.gr-step legend{font-family:var(--sans)!important;font-weight:500!important;color:var(--ink)!important}
+.gr-ask__r{background:var(--ice)!important;border-radius:22px!important}.gr-act{border:1px solid var(--line)!important}.gr-act b{font-family:var(--serif)!important;font-size:19px!important;font-weight:600!important;color:var(--ink)!important}
+
+/* ---- phones: less clutter ---- */
+@media(max-width:700px){
+  .gr{padding-top:30px!important;padding-bottom:30px!important}
+  .gr__sub{display:none!important}
+  .gr__head{margin-bottom:10px!important}
+  .gr h2{font-size:34px!important;margin:12px 0 4px!important}
+  .gr__filters{margin-top:12px!important;gap:6px!important}.gr-f{padding:6px 14px!important;min-height:38px!important;font-size:13.5px!important}
+  .gr__dots,.gr-nav{display:none!important}
+  .gr__bar{justify-content:space-between!important;margin:0 0 22px!important}.gr__count{min-width:0!important}
+  .gr-card{flex-basis:82vw!important;padding:22px 20px 18px!important}
+  .gr-card:not(.gr-card--cta):before{font-size:64px;right:14px;top:8px}
+  .gr-t{-webkit-line-clamp:5!important}
+  .gr-card header b{font-size:19px!important}
+  .gr-ask{padding:20px 16px!important;border-radius:26px!important}.gr-ask__r{display:none!important}
+  .gr-ask h3{font-size:26px!important;margin-bottom:12px!important}.gr-steps li{padding:7px 4px!important}
+  .gr-opt{min-height:64px!important;padding:10px 14px!important}
+}
