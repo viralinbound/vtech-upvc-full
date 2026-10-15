@@ -4,7 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const { PRODUCTS, GROUPS } = require('./data.js');
-const REV = { html: require('./reviews-section.js')({ formHref: '#quote', line: 'upvc' }), css: fs.readFileSync(path.join(__dirname, 'reviews-section.css'), 'utf8'), js: fs.readFileSync(path.join(__dirname, 'reviews-section.client.js'), 'utf8') };
+const REV = { html: require('./reviews-section.js')({ formHref: '#hq', line: 'upvc' }), css: fs.readFileSync(path.join(__dirname, 'reviews-section.css'), 'utf8'), js: fs.readFileSync(path.join(__dirname, 'reviews-section.client.js'), 'utf8') };
 
 // ---- Google Ads / Analytics config: paste your IDs here, rebuild, redeploy. Empty = no tags are loaded. ----
 const GA4_ID = '';          // e.g. 'G-XXXXXXXXXX'
@@ -47,7 +47,7 @@ LD[0].areaServed = ['Bengaluru', 'Whitefield', 'Sarjapur', 'Electronic City', 'H
 const opts = PRODUCTS.map((p) => `<option>${esc(p.name)}</option>`).join('');
 const schRows = SCH.map(([m, o, id, l], i) => `<div class="sr" data-i="${i}"><b>${m}</b><span class="sr__o">${o}</span><span class="sr__p">${esc(byId[id].name)}</span><em>${l}</em></div>`).join('');
 const segs = SCH.map(() => '<i></i>').join('');
-const plist = PRODUCTS.map((p, i) => `<a class="pl" href="#quote" data-pick="${esc(p.name)}"><span class="pl__n">${String(i + 1).padStart(2, '0')}</span><span class="pl__t">${esc(p.name)}</span><span class="pl__f">${esc(p.features[0])}</span><span class="pl__a">Get quote →</span><img src="${A + IMG[p.id]}.webp" alt="" width="360" height="270" loading="lazy"></a>`).join('');
+const plist = PRODUCTS.map((p, i) => `<a class="pl" href="#hq" data-pick="${esc(p.name)}"><span class="pl__n">${String(i + 1).padStart(2, '0')}</span><span class="pl__t">${esc(p.name)}</span><span class="pl__f">${esc(p.features[0])}</span><span class="pl__a">Get quote →</span><img src="${A + IMG[p.id]}.webp" alt="" width="360" height="270" loading="lazy"></a>`).join('');
 const BEN = [['Energy efficient', 'Multi-chambered profiles and double glazing keep heat out, so the AC works less.'], ['Soundproof', 'Sealed uPVC frames cut street noise on busy Bangalore roads.'], ['Dust & weather proof', 'EPDM gasket seals block dust, monsoon water and pollen.'], ['Maintenance free', 'No painting, no rusting, no termites. Wipe with a damp cloth.'], ['100% lead free', 'Made from European-grade raw material, safe for your family.'], ['Weather tested', 'Profiles tested for 25,000+ hours of weathering, built for Indian climate extremes.']];
 const FIN = [['finish-white', 'Classic White', 'Timeless. The most popular choice.'], ['finish-oak', 'Golden Oak', 'Warm wood-grain laminate.'], ['finish-walnut', 'Dark Walnut', 'Rich teak-like finish.'], ['finish-grey', 'Anthracite Grey', 'Modern, architectural look.']];
 const STEPS = [['Book free visit', 'Share your details. Our expert visits at a time that suits you.'], ['Site measurement', 'Accurate measurement and design recommendations for every opening.'], ['Custom manufacturing', 'We manufacture in our Bengaluru factory using European-grade profiles.'], ['Installation & warranty', 'Clean installation by our team, backed by a 20-year manufacturer warranty.']];
@@ -56,7 +56,7 @@ const AREAS = ["Whitefield", "Sarjapur", "Electronic City", "HSR Layout", "Indir
 const shortDesc = (d) => { const parts = d.match(/[^.!?]+[.!?]+(\s|$)/g) || [d]; let out = ''; for (const x of parts) { if (out && (out + x).length > 210) break; out += x; } return out.trim(); };
 const stackCards = PRODUCTS.map((p, i) => `<article class="sc" data-i="${i}"><div class="sc__img"><img src="${A + IMG[p.id]}.webp" alt="${esc(p.name)}, image from VTech" width="900" height="675" loading="${i < 2 ? 'eager' : 'lazy'}"></div>
 <div class="sc__b"><span class="sc__n">${String(i + 1).padStart(2, '0')} / ${String(PRODUCTS.length).padStart(2, '0')} · ${esc(GROUPS.find((g) => g.id === p.group).name)}</span><h3>${esc(p.name)}</h3><p>${esc(shortDesc(p.desc))}</p>
-<ul>${p.features.slice(0, 3).map((f) => `<li>${esc(f)}</li>`).join('')}</ul><a class="btn btn--pill" href="#quote" data-pick="${esc(p.name)}">Get quote for this →</a></div></article>`).join('');
+<ul>${p.features.slice(0, 3).map((f) => `<li>${esc(f)}</li>`).join('')}</ul><a class="btn btn--pill" href="#hq" data-pick="${esc(p.name)}">Get quote for this →</a></div></article>`).join('');
 const GAL = [['gallery-1', 'Modern home exterior'], ['gallery-2', 'Tower balcony'], ['gallery-3', 'Independent villa'], ['gallery-4', 'High-rise apartment'], ['gallery-5', 'Garden-facing villa'], ['gallery-6', 'Bedroom']];
 
 const THEME = fs.readFileSync(path.join(__dirname, 'style.css'), 'utf8');
@@ -206,7 +206,7 @@ ${REVTHEME}
 <section class="hero"><div class="wrap hero__g"><div class="hero__l"><span class="lab">uPVC windows &amp; doors · Bengaluru</span>
 <h1>A Better View. <span class="h1b">A Better Way to Live.</span></h1>
 <p class="hero__k">uPVC windows &amp; doors in Bangalore. VTech matches every opening in your home with the right window or door, made in its own Bengaluru factory and installed by its own team.</p>
-<div class="hero__cta"><a class="btn btn--pill" href="#quote">Book Free Site Visit →</a><a class="btn btn--pill btn--g" href="${tel(P1)}" data-track="call">Call ${P1}</a></div>
+<div class="hero__cta"><a class="btn btn--pill" href="#hq">Book Free Site Visit →</a><a class="btn btn--pill btn--g" href="${tel(P1)}" data-track="call">Call ${P1}</a></div>
 <ul class="bul"><li>Free site visit and measurement</li><li>Made in VTech’s own Bengaluru factory</li><li>Old windows removed, clean installation</li></ul></div>
 <form id="hq" class="lf lf--hero lf--card" data-lead novalidate><span class="lf__tag">FREE CONSULTATION</span><h2 class="lf__h">Book Free Site Consultation</h2><p class="lf__sub">An expert will visit, measure and quote, free of charge.</p>
 <p class="lf__note">✦ Free site visit + measurement, no obligation</p>
@@ -219,7 +219,7 @@ ${REVTHEME}
 <section class="proofbar" aria-label="Figures as stated by VTech"><div class="wrap"><div><b>1 Lakh+</b><span>Happy customers</span></div><div><b>200+</b><span>Projects</span></div><div><b>20+</b><span>Years</span></div><div><b>5+</b><span>Quality certifications</span></div></div></section>
 <div class="tick" aria-hidden="true"><div>${[...PRODUCTS.map((p) => esc(p.name)),...PRODUCTS.map((p) => esc(p.name))].map((n) => `<span>${n}</span><i>✦</i>`).join('')}</div></div>
 <section class="ben ben--6" id="why"><div class="wrap">${BEN.map(([t,d],i)=>`<div class="rv"><h3 data-n="0${i+1}">${t}</h3><p>${d}</p></div>`).join('')}</div></section>
-<section class="band"><div class="wrap"><div><h3>See how your home fits.</h3><p>Free site visit and measurement. No obligation.</p></div><div class="band__b"><a class="btn" href="#quote" data-track="cta_band">Get my free quote →</a><a class="btn btn--o" href="${tel(P1)}" data-track="call">Call ${P1}</a></div></div></section>
+<section class="band"><div class="wrap"><div><h3>See how your home fits.</h3><p>Free site visit and measurement. No obligation.</p></div><div class="band__b"><a class="btn" href="#hq" data-track="cta_band">Get my free quote →</a><a class="btn btn--o" href="${tel(P1)}" data-track="call">Call ${P1}</a></div></div></section>
 <section class="sec colours" id="colours"><div class="wrap"><span class="lab rv">Colour &amp; texture</span><h2 class="rv">Choose a finish that fits your home.</h2><p class="seo rv">Foil-laminated finishes that don’t need repainting.</p><div class="fin">${FIN.map(([f,n,d])=>`<figure class="rv"><img src="${A}${f}.webp" alt="${n} uPVC finish" width="400" height="400" loading="lazy"><figcaption><b>${n}</b><span>${d}</span></figcaption></figure>`).join('')}</div></div></section>
 <section class="sec stage" id="systems"><div class="wrap"><span class="lab rv">10 systems</span><h2 class="rv">Choose the system.</h2><div class="stack">${stackCards}</div></div></section>
 <section class="sec gal" id="projects"><div class="wrap"><span class="lab rv">Recent installations</span><h2 class="rv">200+ projects across Bangalore &amp; beyond.</h2><div class="gal__g">${GAL.map(([g,n],i)=>`<figure class="rv g${i+1}"><img src="${A}${g}.webp" alt="${n}, V-Tech installation" width="800" height="600" loading="lazy"><figcaption>${n}</figcaption></figure>`).join('')}</div></div></section>
@@ -236,7 +236,7 @@ ${REVTHEME}
 <section class="sec cards" id="visit"><div class="wrap"><span class="lab rv">Visit us</span><h2 class="rv">Showroom &amp; factory.</h2><div class="cc"><div class="rv"><h3>Showroom · Rajajinagar</h3><p>No. 693, M.N.S Arcade, East Facing 3rd Floor, Dr. Rajkumar Rd, 6th Block, Rajajinagar, Bangalore 560010</p><p><a href="${tel(P1)}" data-track="call">${P1}</a></p><p>Open all days, 09:00 AM to 09:00 PM</p></div><div class="rv"><h3>Factory · Kalenahalli</h3><p>4GW7+P2Q, Kalenahalli, Bengaluru 560089</p><p>Capacity: 10,000+ uPVC units a year</p><p>Factory tours on request</p></div></div></div></section>
 </main>
 <footer class="foot"><div class="wrap"><span>© V-Tech Building Systems Pvt. Ltd, Bengaluru</span><span>Figures as published on vtechwindows.com · Design prototype, not the official VTech website</span></div></footer>
-<div class="mbar" role="region" aria-label="Quick actions"><a class="btn btn--o" href="${tel(P1)}" data-track="call">Call now</a><a class="btn" href="#quote">Book free visit</a></div>
+<div class="mbar" role="region" aria-label="Quick actions"><a class="btn btn--o" href="${tel(P1)}" data-track="call">Call now</a><a class="btn" href="#hq">Book free visit</a></div>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>${js}\n${REV.js}</script></body></html>`;
 
