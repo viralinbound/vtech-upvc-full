@@ -472,3 +472,14 @@ main .sec{padding-top:44px!important;padding-bottom:44px!important}
 .fcta .btn{width:100%;justify-content:center;min-height:54px}
 .fcta .btn--o{background:#fff!important;color:var(--blue)!important;border:1px solid rgba(2,64,154,.35)!important}
 .fcta .btn--o:hover{background:rgba(2,64,154,.06)!important}
+
+/* mobile hero polish: full-width heading, single-line eyebrow, tidier CTA */
+@media(max-width:700px){
+html body .hero h1{max-width:none!important;width:100%!important;font-size:clamp(36px,10.6vw,44px)!important;line-height:1.04!important;margin-bottom:10px!important}
+html body .hero .lab{font-size:11px!important;letter-spacing:.12em!important;white-space:nowrap;gap:10px!important;margin-bottom:12px!important}
+html body .hero .lab:before{width:22px!important}
+html body .hero__k{font-size:15.5px!important;line-height:1.55!important}
+html body .hero__cta{display:grid!important;grid-template-columns:1fr!important;gap:10px!important;margin:6px 0 14px!important}
+html body .hero__cta .btn{width:100%!important;justify-content:center;min-height:52px}
+html body .hero .bul{margin-bottom:8px!important}
+}
