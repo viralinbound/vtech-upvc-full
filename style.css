@@ -686,3 +686,7 @@ html body .stack .sc:after{opacity:calc(var(--cover,0) * .5)!important}
 html body .stack .sc .sc__img,html body .stack .sc .sc__b{opacity:clamp(0,calc((var(--enter,1) - .55) * 2.3),1)!important;transform:translate3d(0,calc((1 - var(--enter,1)) * 28px),0)!important;transition:none!important}
 html body .stack .sc .sc__img img{filter:blur(calc((1 - var(--enter,1)) * 6px))}
 @media(prefers-reduced-motion:reduce){html body .stack .sc .sc__img,html body .stack .sc .sc__b{opacity:1!important;transform:none!important}html body .stack .sc .sc__img img{filter:none}}
+/* incoming card starts as a ghost (faint, see-through) and turns solid as it reaches the top */
+html body .stack .sc{opacity:min(clamp(0,calc(3.7 - var(--depth,0)),1),calc(.14 + var(--enter,1) * .86))!important}
+html body .stack .sc:not(:first-child){box-shadow:0 calc(var(--enter,1) * 40px) calc(var(--enter,1) * 90px) calc(var(--enter,1) * -40px) rgba(15,22,32,calc(var(--enter,1) * .5)),0 0 0 1px rgba(15,22,32,calc(.06 + (1 - var(--enter,1)) * .1))!important}
+@media(prefers-reduced-motion:reduce){html body .stack .sc{opacity:1!important}}
